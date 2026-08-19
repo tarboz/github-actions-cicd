@@ -21,6 +21,8 @@ jobs:
 
   say-hello-uses:
     runs-on: macos-latest
+    needs:
+      - say-hello-inline-bash
     steps:
       - name: Macos Uses
         uses: actions/hello-world-javascript-action@v1.1

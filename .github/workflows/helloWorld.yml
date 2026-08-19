@@ -5,7 +5,23 @@ on:
 
 jobs:
   say-hello-inline-bash:
-    runs-on: ubuntu-24.04
+    runs-on: macos-latest
     steps:
       - name: Just echo the string
         run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
+        shell: bash
+
+  say-hello-node:
+    runs-on: macos-lates
+    steps:
+      - name: Macos Python print
+        run: print('Hello from Python!')
+        shell: python
+
+  say-hello-uses:
+    runs-on: macos-latest
+    steps:
+      - name: Macos Uses
+        uses: actions/hello-world-javascript-action@v1
+        with:
+         who-to-greet: "from an action on marketplace! 👋"

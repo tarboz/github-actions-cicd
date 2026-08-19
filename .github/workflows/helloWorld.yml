@@ -2,6 +2,16 @@ name: Hello World
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+     - "example/*"
+  pull_request:
+    paths:
+      - "readme.md"
+      - "!exclude.md"
+  schedule:
+    - cron: "0 0 * * *"
+
 
 jobs:
   say-hello-inline-bash:
@@ -10,6 +20,9 @@ jobs:
     steps:
       - name: Just echo the string
         run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
+        shell: bash
+      - name: Just another echo
+        run: echo "Another echo"
         shell: bash
 
   say-hello-node:

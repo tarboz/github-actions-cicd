@@ -5,6 +5,7 @@ on:
 
 jobs:
   say-hello-inline-bash:
+    name: The job name visible
     runs-on: macos-latest
     steps:
       - name: Just echo the string

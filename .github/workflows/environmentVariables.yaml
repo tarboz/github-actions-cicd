@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "WORKFLOW_VAR: $WORKFLOW_VAR"         # visible
           echo "JOB_VAR:      $JOB_VAR"              # visible
-          echo "STEP_VAR:     $STEP_VAR"  # not set here
+          echo "STEP_VAR:     ${STEP_VAR:NOVAL}"  # not set here
 
   job-2:
     runs-on: ubuntu-latest

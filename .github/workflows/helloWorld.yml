@@ -1,11 +1,10 @@
-name: Hello World Workflow
+name: Hello World
 
 on:
-  workflow_dispatch:
+  workflow_dispatch
 
 jobs:
-  hello-world:
-    runs-on: ubuntu-latest
+  say-hello-inline-bash:
+    runs-on: ubuntu-24.04
     steps:
-      - name: Display Hello World
-        run: echo "hello world"
+      -run: echo "Hello from an inline bash script in a GitHub Action Workflow!"

@@ -12,7 +12,7 @@ jobs:
         shell: bash
 
   say-hello-node:
-    runs-on: macos-lates
+    runs-on: macos-latest
     steps:
       - name: Macos Python print
         run: print('Hello from Python!')

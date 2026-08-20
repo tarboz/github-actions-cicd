@@ -5,7 +5,7 @@ on:
 jobs:
   artifact-producer:
     name: Produce artifact
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
         ARTIFACT_NAME: example-artifact
         ARTIFACT_PATH: artifact.txt

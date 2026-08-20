@@ -1,0 +1,39 @@
+name: Create File Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      file_name:
+        description: 'Name of the file to create'
+        required: true
+      file_path:
+        description: 'Path where the file should be created'
+        required: true
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+    env:
+      FILE_NAME: ${{ github.event.inputs.file_name }}
+      FILE_PATH: ${{ github.event.inputs.file_path }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create directory if it doesn't exist
+        run: |
+          mkdir -p ${{ env.FILE_PATH }}
+
+      - name: Create the file
+        run: |
+          touch ${{ env.FILE_PATH }}/${{ env.FILE_NAME }}
+          echo "File created successfully at ${{ env.FILE_PATH }}/${{ env.FILE_NAME }}"
+
+      - name: Verify file creation
+        run: |
+          if [ -f "${{ env.FILE_PATH }}/${{ env.FILE_NAME }}" ]; then
+            echo "File verification successful"
+            ls -la ${{ env.FILE_PATH }}/${{ env.FILE_NAME }}
+          else
+            echo "File creation failed"
+            exit 1
+          fi

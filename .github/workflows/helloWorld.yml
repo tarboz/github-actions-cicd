@@ -9,8 +9,8 @@ on:
     paths:
       - "readme.md"
       - "!exclude.md"
-  schedule:
-    - cron: "0 0 * * *"
+  # schedule:
+  #   - cron: "0 0 * * *"
 
 
 jobs:

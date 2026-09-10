@@ -11,10 +11,7 @@ jobs:
         ARTIFACT_PATH: artifact.txt
     outputs:
       ARTIFACT_NAME: $ARTIFACT_NAME
-<<<<<<< HEAD
-=======
       ARTIFACT_PATH: $ARTIFACT_PATH
->>>>>>> 8d1bb88 (init)
     steps:
       - name: Create artifact file
         run: |
@@ -36,14 +33,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v5.0.0
         with:
-<<<<<<< HEAD
-          name: ${{ needs.outputs.ARTIFACT_NAME }}
-
-      - name: Cat artifact file
-        run: cat artifact.txt
-=======
           name: ${{ needs.artifact-producer.outputs.ARTIFACT_NAME }}
 
       - name: Cat artifact file
         run: cat ${{ needs.artifact-producer.outputs.ARTIFACT_PATH }}
->>>>>>> 8d1bb88 (init)

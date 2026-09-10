@@ -27,7 +27,7 @@ jobs:
       - name: If failed
         if: failure()
         # run: echo "the rror"
-        uses: namespaceslabs/breakpoint-action@v0
+        uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 10m
           authorized-users: tarboz
